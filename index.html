@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="app.js" defer></script>
 	</head>
 	<body>
 		<div class="jumbotron text-center">
@@ -18,15 +19,15 @@
 					<h3>Input</h3>
 					<form>
 						<div class="form-group">
-							<textarea class="form-control" placeholder="Your text..." rows="4"></textarea>
+							<textarea id="input" class="form-control" placeholder="Your text..." rows="4"></textarea>
 						</div>
 					</form>
 				</div>
 				<div class="col-sm-4">
 					<div class="row pb-3">
 						<div class="col-sm-12">
-							<button type="button" class="btn btn-primary">Encode</button>
-							<button type="button" class="btn btn-primary">Decode</button>
+							<button id="encode" type="button" class="btn btn-primary">Encode</button>
+							<button id="decode" type="button" class="btn btn-primary">Decode</button>
 						</div>
 					</div>
 					<div class="row pb-3">
@@ -35,7 +36,7 @@
 								<div class="input-group-text">
 									<i class="fa fa-key"></i>
 								</div>	
-								<input class="form-control" size="2" type="number" value="3">
+								<input id="shift" class="form-control" size="2" type="number" value="3">
 							</div>
 						</div>
 					</div>
@@ -45,10 +46,10 @@
 								<div class="input-group-text">
 									<i class="fa fa-font"></i>
 								</div>
-								<select class="form-control" id="language">
-									<option>English</option>
-									<option>Polski</option>
-									<option>Български</option>
+								<select id="language" class="form-control">
+									<option value="en">English</option>
+									<option value="pl">Polski</option>
+									<option value="bg">Български</option>
 								</select>
 							</div>
 						</div>
@@ -58,7 +59,7 @@
 					<h3>Output</h3>
 					<form>
 						<div class="form-group">
-							<textarea class="form-control" rows="4"></textarea>
+							<textarea id="output" class="form-control" rows="4"></textarea>
 						</div>
 					</form>
 				</div>
