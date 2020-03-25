@@ -27,7 +27,7 @@ const determineCipherLetter = (letter, currentPosition, shift, alphabet) => {
 	}
 };
 
-encodeButton.addEventListener('click', () => {
+const encode = () => {
 	const input = document.getElementById('input').value;
 	const shift = parseInt(document.getElementById('shift').value);
 	const language = document.getElementById('language').value;
@@ -44,8 +44,11 @@ encodeButton.addEventListener('click', () => {
 	}
 	const cipherText = output.join('');
 	document.getElementById('output').value = cipherText;
-});
+};
 
-decodeButton.addEventListener('click', () => {
-	console.log('decodeButton was clicked!');
-});
+const decode = () => {
+	console.log('Decode button works!');
+};
+
+encodeButton.addEventListener('click', encode);
+decodeButton.addEventListener('click', decode);
