@@ -21,16 +21,25 @@ const determineLetterPosition = (letter, alphabet) => {
 	return alphabet.indexOf(letter.toUpperCase());
 };
 
-const determineCipherLetter = (letter, currentPosition, shift, alphabet) => {
+const determineLetter = (letter, currentPosition, shift, alphabet, encode) => {
 	const numberOfLetters = alphabet.length;
-	const cipherLetterposition = currentPosition + shift;
-	const index = cipherLetterposition % numberOfLetters;
+	let letterPosition;
+	if (encode === true) {
+		letterPosition = currentPosition + shift;
+	} else {
+		letterPosition = currentPosition - shift;
+		if (letterPosition < 0) {
+			letterPosition = letterPosition + numberOfLetters;
+		}
+	}
+	const index = letterPosition % numberOfLetters;
 	if (isUpperCase(letter)) {
 		return alphabet[index];
 	} else {
 		return alphabet[index].toLowerCase();
 	}
 };
+
 
 const encode = () => {
 	const input = document.getElementById('input').value;
@@ -44,7 +53,7 @@ const encode = () => {
 		if (currentPosition === -1) {
 			output.push(char);
 		} else {
-			output.push(determineCipherLetter(char, currentPosition, shift, chosenAlphabet));
+			output.push(determineLetter(char, currentPosition, shift, chosenAlphabet, true));
 		}
 	}
 	const cipherText = output.join('');
@@ -52,7 +61,22 @@ const encode = () => {
 };
 
 const decode = () => {
-	console.log('Decode button works!');
+	const input = document.getElementById('input').value;;
+	const shift = parseInt(document.getElementById('shift').value);
+	const language = document.getElementById('language').value;
+	const chosenAlphabet = alphabets[language];
+	let output = [];
+
+	for (let char of input) {
+		const currentPosition = determineLetterPosition(char, chosenAlphabet);
+		if (currentPosition === -1) {
+			output.push(char);
+		} else {
+			output.push(determineLetter(char, currentPosition, shift, chosenAlphabet, false));
+		}
+	}
+	const cipherText = output.join('');
+	document.getElementById('output').value = cipherText;
 };
 
 encodeButton.addEventListener('click', encode);
