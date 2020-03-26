@@ -13,6 +13,27 @@ const alphabets = {
 const encodeButton = document.getElementById('encode');
 const decodeButton = document.getElementById('decode');
 
+const makePrimary = (button) => {
+	button.classList.add('btn-primary');
+	button.classList.remove('btn-secondary');
+};
+
+const makeSecondary = (button) => {
+	button.classList.add('btn-secondary');
+	button.classList.remove('btn-primary');
+};
+
+const flip = (event) => {
+	const buttonThatWasClicked = event.target;
+	if (buttonThatWasClicked === encodeButton) {
+		makePrimary(encodeButton);
+		makeSecondary(decodeButton);
+	} else {
+		makePrimary(decodeButton);
+		makeSecondary(encodeButton);
+	}
+};
+
 const isUpperCase = (letter) => {
 	return letter === letter.toUpperCase();
 };
@@ -20,6 +41,7 @@ const isUpperCase = (letter) => {
 const determineLetterPosition = (letter, alphabet) => {
 	return alphabet.indexOf(letter.toUpperCase());
 };
+
 
 const determineLetter = (letter, currentPosition, shift, alphabet, encode) => {
 	const numberOfLetters = alphabet.length;
@@ -80,4 +102,7 @@ const decode = () => {
 };
 
 encodeButton.addEventListener('click', encode);
+encodeButton.addEventListener('click', flip);
+
 decodeButton.addEventListener('click', decode);
+decodeButton.addEventListener('click', flip);
