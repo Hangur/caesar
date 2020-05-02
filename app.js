@@ -12,6 +12,8 @@ const alphabets = {
 
 const encodeButton = document.getElementById('encode');
 const decodeButton = document.getElementById('decode');
+const input = document.getElementById('input');
+let activeMode = 'encode';
 
 const makePrimary = (button) => {
 	button.classList.add('btn-primary');
@@ -28,9 +30,21 @@ const flip = (event) => {
 	if (buttonThatWasClicked === encodeButton) {
 		makePrimary(encodeButton);
 		makeSecondary(decodeButton);
+		activeMode = 'encode';
 	} else {
 		makePrimary(decodeButton);
 		makeSecondary(encodeButton);
+		activeMode = 'decode';
+	}
+};
+
+const pressEnter = (event) => {
+	if (event.keyCode === 13) {
+		if (activeMode === 'encode') {
+			encode();
+		} else {
+			decode();
+		}
 	}
 };
 
@@ -106,3 +120,5 @@ encodeButton.addEventListener('click', flip);
 
 decodeButton.addEventListener('click', decode);
 decodeButton.addEventListener('click', flip);
+
+input.addEventListener('keyup', pressEnter);
