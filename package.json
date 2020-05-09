@@ -8,10 +8,13 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "mocha": "^7.1.2"
+    "mocha": "^7.1.2",
+    "parcel-bundler": "^1.12.4"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
