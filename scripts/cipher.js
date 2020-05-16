@@ -10,8 +10,18 @@ const alphabets = {
  'ば', 'び', 'ぶ', 'べ', 'ぼ', 'ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん']
 };
 
+const isUpperCase = (letter) => {
+	return letter === letter.toUpperCase();
+};
+
+const determineLetterPosition = (letter, alphabet) => {
+	return alphabet.indexOf(letter.toUpperCase());
+};
+
 const Cipher = {
-    alphabets: alphabets
+	alphabets: alphabets,
+	isUpperCase: isUpperCase,
+	determineLetterPosition: determineLetterPosition
 };
 
 export default Cipher;
