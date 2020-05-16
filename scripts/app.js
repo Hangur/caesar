@@ -38,14 +38,6 @@ const pressEnter = (event) => {
 	}
 };
 
-const isUpperCase = (letter) => {
-	return letter === letter.toUpperCase();
-};
-
-const determineLetterPosition = (letter, alphabet) => {
-	return alphabet.indexOf(letter.toUpperCase());
-};
-
 const determineLetter = (letter, currentPosition, shift, alphabet, encode) => {
 	const numberOfLetters = alphabet.length;
 	let letterPosition;
@@ -58,7 +50,7 @@ const determineLetter = (letter, currentPosition, shift, alphabet, encode) => {
 		}
 	}
 	const index = letterPosition % numberOfLetters;
-	if (isUpperCase(letter)) {
+	if (Cipher.isUpperCase(letter)) {
 		return alphabet[index];
 	} else {
 		return alphabet[index].toLowerCase();
@@ -73,7 +65,7 @@ const encode = () => {
 	let output = [];
 
 	for (let char of input) {
-		const currentPosition = determineLetterPosition(char, chosenAlphabet);
+		const currentPosition = Cipher.determineLetterPosition(char, chosenAlphabet);
 		if (currentPosition === -1) {
 			output.push(char);
 		} else {
@@ -92,7 +84,7 @@ const decode = () => {
 	let output = [];
 
 	for (let char of input) {
-		const currentPosition = determineLetterPosition(char, chosenAlphabet);
+		const currentPosition = Cipher.determineLetterPosition(char, chosenAlphabet);
 		if (currentPosition === -1) {
 			output.push(char);
 		} else {

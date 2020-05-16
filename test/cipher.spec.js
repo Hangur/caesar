@@ -37,3 +37,54 @@ describe('alphabets', () => {
     });
 });
 
+describe('isUpperCase', () => {
+
+    it('detects an upper case', () => {
+        const actual = Cipher.isUpperCase('P');
+
+        expect(actual).to.be.true;
+    });
+
+    it('detects a lower case', () => {
+        const actual = Cipher.isUpperCase('g');
+
+        expect(actual).to.be.false;
+    });
+
+    it('detects an upper case Japanese', () => {
+        const actual = Cipher.isUpperCase('き');
+
+        expect(actual).to.be.true;
+    });
+});
+
+describe('determineLetterPosition', () => {
+
+    it('finds A in the English alphabet', () => {
+        const expected = 0;
+        const actual = Cipher.determineLetterPosition('A', Cipher.alphabets.en);
+
+        expect(actual).to.equal(expected);
+    });
+
+    it('finds a in the English alphabet', () => {
+        const expected = 0;
+        const actual = Cipher.determineLetterPosition('a', Cipher.alphabets.en);
+
+        expect(actual).to.equal(expected);
+    });
+
+    it('does not find ż in the English alphabet', () => {
+        const expected = -1;
+        const actual = Cipher.determineLetterPosition('ż', Cipher.alphabets.en);
+
+        expect(actual).to.equal(expected);
+    });
+
+    it('finds ą in the Polish alphabet', () => {
+        const expected = 1;
+        const actual = Cipher.determineLetterPosition('ą', Cipher.alphabets.pl);
+
+        expect(actual).to.equal(expected);
+    });
+});
