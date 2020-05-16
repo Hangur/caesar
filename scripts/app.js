@@ -80,7 +80,7 @@ const decode = () => {
 	const input = document.getElementById('input').value;;
 	const shift = parseInt(document.getElementById('shift').value);
 	const language = document.getElementById('language').value;
-	const chosenAlphabet = alphabets[language];
+	const chosenAlphabet = Cipher.alphabets[language];
 	let output = [];
 
 	for (let char of input) {
