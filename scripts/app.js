@@ -28,13 +28,11 @@ const flip = (event) => {
 	}
 };
 
-const pressEnter = (event) => {
-	if (event.keyCode === 13) {
-		if (activeMode === 'encode') {
-			encode();
-		} else {
-			decode();
-		}
+const pressKey = (event) => {
+	if (activeMode === 'encode') {
+		encode();
+	} else {
+		decode();
 	}
 };
 
@@ -101,4 +99,4 @@ encodeButton.addEventListener('click', flip);
 decodeButton.addEventListener('click', decode);
 decodeButton.addEventListener('click', flip);
 
-input.addEventListener('keyup', pressEnter);
+input.addEventListener('keyup', pressKey);
