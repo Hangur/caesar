@@ -1,4 +1,5 @@
 .cache
 *.code-workspace
+.parcel-cache
 dist
 node_modules
