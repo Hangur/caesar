@@ -1,78 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Et tu, Brute?</title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link href="style.css" rel="stylesheet"> 
-		<script src="scripts/app.js" defer></script>
-	</head>
-	<body>
-		<div class="jumbotron text-center">
-			<h1 class="pb-3">Ceasar Cipher</h1>
-			<blockquote class="blockquote blockquote-small" cite="https://en.wikipedia.org/wiki/Caesar_cipher">
-				<p>
-					"In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet."
-				</p> 
-				<footer class="blockquote-footer text-right">
-					<a href="https://en.wikipedia.org/wiki/Caesar_cipher" title="Wikipedia Caesar Cipher">https://en.wikipedia.org/wiki/Caesar_cipher</a>
-				</footer>
-			</blockquote>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4">
-					<h3>Input</h3>
-					<form>
-						<div class="form-group">
-							<textarea id="input" class="form-control" placeholder="Your text..." rows="4"></textarea>
-						</div>
-					</form>
-				</div>
-				<div class="col-sm-4">
-					<div class="row pb-3">
-						<div class="col-sm-12">
-							<button id="encode" type="button" class="btn btn-primary">Encode</button>
-							<button id="decode" type="button" class="btn btn-secondary">Decode</button>
-						</div>
-					</div>
-					<div class="row pb-3">
-						<div class="col-sm-12">
-							<div class="input-group">
-								<div class="input-group-text">
-									<i class="fa fa-key"></i>
-								</div>	
-								<input id="shift" class="form-control" size="2" type="number" value="3">
-							</div>
-						</div>
-					</div>
-					<div class="row pb-3">
-						<div class="col-sm-12">
-							<div class="input-group">
-								<div class="input-group-text">
-									<i class="fa fa-font"></i>
-								</div>
-								<select id="language" class="form-control">
-									<option value="en">English</option>
-									<option value="pl">Polski</option>
-									<option value="bg">Български</option>
-									<option value="jp">日本語(ひらがなだけ)</option>
-								</select>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<h3>Output</h3>
-					<form>
-						<div class="form-group">
-							<textarea id="output" class="form-control" rows="4"></textarea>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</body>
+  <head>
+    <title>Et tu, Brute?</title>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <script src="scripts/app.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <h1 class="pb-3">Ceasar Cipher</h1>
+      <blockquote
+        class="blockquote blockquote-small"
+        cite="https://en.wikipedia.org/wiki/Caesar_cipher"
+      >
+        <p>
+          "In cryptography, a Caesar cipher, also known as Caesar's cipher, the
+          shift cipher, Caesar's code or Caesar shift, is one of the simplest
+          and most widely known encryption techniques. It is a type of
+          substitution cipher in which each letter in the plaintext is replaced
+          by a letter some fixed number of positions down the alphabet."
+        </p>
+        <footer class="blockquote-footer text-right">
+          <a
+            href="https://en.wikipedia.org/wiki/Caesar_cipher"
+            title="Wikipedia Caesar Cipher"
+            >https://en.wikipedia.org/wiki/Caesar_cipher</a
+          >
+        </footer>
+      </blockquote>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Input</h3>
+          <form>
+            <div class="form-group">
+              <textarea
+                id="input"
+                class="form-control"
+                placeholder="Your text..."
+                rows="4"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-4">
+          <div class="row pb-3">
+            <div class="col-sm-12">
+              <button id="encode" type="button" class="btn btn-primary">
+                Encode
+              </button>
+              <button id="decode" type="button" class="btn btn-secondary">
+                Decode
+              </button>
+            </div>
+          </div>
+          <div class="row pb-3">
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-text">
+                  <i class="fa fa-key"></i>
+                </div>
+                <input
+                  id="shift"
+                  class="form-control"
+                  size="2"
+                  type="number"
+                  value="3"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row pb-3">
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-text">
+                  <i class="fa fa-font"></i>
+                </div>
+                <select id="language" class="form-control">
+                  <option value="en">English</option>
+                  <option value="pl">Polski</option>
+                  <option value="bg">Български</option>
+                  <option value="jp">日本語(ひらがなだけ)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <h3>Output</h3>
+          <form>
+            <div class="form-group">
+              <textarea id="output" class="form-control" rows="4"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
