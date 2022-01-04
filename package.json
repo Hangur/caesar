@@ -3,7 +3,6 @@
   "name": "caesar",
   "version": "0.1.0",
   "description": "Caesar cipher tool - pet project",
-  "main": "app.js",
   "directories": {
     "test": "test"
   },
