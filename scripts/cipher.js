@@ -1,3 +1,4 @@
+// prettier-ignore
 const alphabets = {
 	en: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
@@ -10,18 +11,18 @@ const alphabets = {
  'ば', 'び', 'ぶ', 'べ', 'ぼ', 'ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん']
 };
 
-const isUpperCase = (letter) => {
-	return letter === letter.toUpperCase();
-};
+const isUpperCase = letter => {
+  return letter === letter.toUpperCase()
+}
 
 const determineLetterPosition = (letter, alphabet) => {
-	return alphabet.indexOf(letter.toUpperCase());
-};
+  return alphabet.indexOf(letter.toUpperCase())
+}
 
 const Cipher = {
-	alphabets: alphabets,
-	isUpperCase: isUpperCase,
-	determineLetterPosition: determineLetterPosition
-};
+  alphabets: alphabets,
+  isUpperCase: isUpperCase,
+  determineLetterPosition: determineLetterPosition
+}
 
-export default Cipher;
+export default Cipher
